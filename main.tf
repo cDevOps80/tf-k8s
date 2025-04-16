@@ -15,5 +15,5 @@ variable "instance_types" {
 }
 
 output "instances" {
-  value = {for i in var.instance_types: instance_type => i }
+  value = {for i in var.instance_types: "instance_type" => i }
 }
