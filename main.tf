@@ -1,16 +1,7 @@
 variable "one" {
-  default = ["one","two"]
+  default = ["one","two",["three","four"],"six"]
 }
 
 output "all" {
-  value =<<EOT
-%{~for i in var.one ~}
-${i}
-%{~ endfor ~}
-EOT
+  value = flatten(var.one)
 }
-
-
-
-
-
