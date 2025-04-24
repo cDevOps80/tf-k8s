@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+  labels:
+    app: nginx
+spec:
+  tolerations:
+    
+  securityContext: {}
+  initContainers: {}
+  containers:
+    - name: c1
+      image: nginx
+      resources:
+        requests:
+          cpu: 200m
+          memory: 256Mi
+        limits:
+          cpu: 250m
+          memory: 450Mi
+      securityContext: {}
+      livenessProbe:
+      readinessProbe: {}
+
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: www
+          mountPath: /tmp/data
+          readOnly: true
+
+  volumes: {}
+  restartPolicy: {}
+  nodeSelector: {}
+  affinity: {}
